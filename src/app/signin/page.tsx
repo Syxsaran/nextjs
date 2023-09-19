@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 import './signin.css';
-
+import Link from "next/link";
 
 
 export default function Page() {
@@ -20,7 +20,7 @@ export default function Page() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     //set data to API
-    const resp = await fetch("http://localhost:3000/api/signin", {
+    const resp = await fetch("http://localhost:3000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,6 +31,7 @@ export default function Page() {
     if (resp.ok) {
       router.push("/");
     } else {
+      alert("Login failed. Please try again.");
       router.back();
     }
   };
@@ -38,25 +39,30 @@ export default function Page() {
   return (
     <>
       <div className="signin-page">
-      <h1>This is Signin Page</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="username"
-          value={formValue.username}
-          onChange={handleChange}
-          placeholder="Username"
-        ></input>
-        <input
-          type="text"
-          name="password"
-          value={formValue.password}
-          onChange={handleChange}
-          placeholder="Password"
-        ></input>
-        <button type="submit">Signin</button>
-      </form>
-    </div>
+        <h1>This is Signin Page</h1>
+        <form onSubmit={onSubmit}>
+          <input
+            type="text"
+            name="username"
+            value={formValue.username}
+            onChange={handleChange}
+            placeholder="Username"
+          ></input>
+          <input
+            type="text"
+            name="password"
+            value={formValue.password}
+            onChange={handleChange}
+            placeholder="Password"
+          ></input>
+          <button type="submit">Signin</button>
+          <Link href="/signup"> {/* กำหนด URL ของหน้า "signup/page.tsx" */}
+            <h1>
+              <button type="button">Go To Signup Page</button>
+            </h1>
+          </Link>
+        </form>
+      </div>
     </>
   );
 }
