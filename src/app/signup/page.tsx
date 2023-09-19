@@ -4,13 +4,11 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import './signup.css';
 
-// ต่อไปนี้เป็นตัวอย่าง code ในรูปแบบ Server Components
 export default function Signup() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    // เพิ่มฟิลด์อื่นๆ ที่คุณต้องการรับข้อมูล
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +19,6 @@ export default function Signup() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // เรียกใช้ API สำหรับการลงทะเบียน
       const response = await fetch("/api/signup", {
         method: "POST",
         headers: {
@@ -29,22 +26,22 @@ export default function Signup() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        // ลงทะเบียนสำเร็จ นำผู้ใช้ไปยังหน้าหลักหรือหน้าที่คุณต้องการ
         router.push("/");
       } else {
-        // ลงทะเบียนไม่สำเร็จ แสดงข้อความผิดพลาดหรือให้ผู้ใช้ลองใหม่
-        console.error("Registration failed.");
+        const data = await response.json();
+        console.error("Registration failed:", data.error);
       }
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
+  
 
   return (
     <div>
-      <h1>Signup</h1>
+      <h1>Signup Page</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username</label>
@@ -64,7 +61,6 @@ export default function Signup() {
             onChange={handleChange}
           />
         </div>
-        {/* เพิ่มฟิลด์อื่นๆ ที่คุณต้องการรับข้อมูล */}
         <button type="submit">Register</button>
       </form>
     </div>

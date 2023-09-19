@@ -32,7 +32,7 @@ export default function Page() {
       router.push("/");
     } else {
       alert("Login failed. Please try again.");
-      router.back();
+      router.push("/signup");
     }
   };
 

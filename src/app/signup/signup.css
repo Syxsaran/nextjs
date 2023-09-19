@@ -1,35 +1,21 @@
-/* signup.css */
-
-.signup-page {
+body, html {
+  height: 100%;
+  margin: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
-h1 {
+.signup-page {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.signup-page h1 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input {
-  padding: 10px;
-  margin: 5px;
-  width: 300px;
-}
-
-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
