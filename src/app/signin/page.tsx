@@ -56,7 +56,7 @@ export default function Page() {
             placeholder="Password"
           ></input>
           <button type="submit">Signin</button>
-          <Link href="/signup"> {/* กำหนด URL ของหน้า "signup/page.tsx" */}
+          <Link href="/signup">
             <h1>
               <button type="button">Go To Signup Page</button>
             </h1>
