@@ -1,6 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
+import './signin.css';
+
+
 
 export default function Page() {
   const router = useRouter();
@@ -42,12 +45,14 @@ export default function Page() {
           name="username"
           value={formValue.username}
           onChange={handleChange}
+          placeholder="Username"
         ></input>
         <input
           type="text"
           name="password"
           value={formValue.password}
           onChange={handleChange}
+          placeholder="Password"
         ></input>
         <button type="submit">Signin</button>
       </form>

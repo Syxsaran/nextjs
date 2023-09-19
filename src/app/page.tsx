@@ -1,11 +1,10 @@
-"use client";
 import Image from "next/image";
-//import styles from './page.module.css'
+import './page.css'; 
 
 export default function Home() {
   return (
     <>
-      <h1>Wellcome</h1>
+      <h1>Welcome</h1>
     </>
   );
 }
