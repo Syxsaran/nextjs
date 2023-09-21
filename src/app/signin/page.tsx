@@ -20,7 +20,7 @@ export default function Page() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     //set data to API
-    const resp = await fetch("http://localhost:3000", {
+    const resp = await fetch("http://localhost:3000/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
